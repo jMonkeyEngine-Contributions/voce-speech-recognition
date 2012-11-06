@@ -1,0 +1,92 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>About Voce Speech Recognition</title>
+        <link rel="stylesheet" href="nbdocs://org.netbeans.modules.usersguide/org/netbeans/modules/usersguide/ide.css" type="text/css">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    </head>
+    <body>
+        <h2>About Voce Speech Recognition</h2>
+        <p> A sample application showing how to use Voce's speech recognition capabilities.
+        </p>
+        <p>
+            <code>
+
+public class recognitionTest
+{
+	public static void main(String[] argv)
+	{
+		voce.SpeechInterface.init("../../../lib", false, true, 
+			"./grammar", "digits");
+
+		System.out.println("This is a speech recognition test. " 
+			+ "Speak digits from 0-9 into the microphone. " 
+			+ "Speak 'quit' to quit.");
+
+		boolean quit = false;
+		while (!quit)
+		{
+			// Normally, applications would do application-specific things 
+			// here.  For this sample, we'll just sleep for a little bit.
+			try
+			{
+				Thread.sleep(200);
+			}
+			catch (InterruptedException e)
+			{
+			}
+
+			while (voce.SpeechInterface.getRecognizerQueueSize() > 0)
+			{
+				String s = voce.SpeechInterface.popRecognizedString();
+
+				// Check if the string contains 'quit'.
+				if (-1 != s.indexOf("quit"))
+				{
+					quit = true;
+				}
+
+				System.out.println("You said: " + s);
+				//voce.SpeechInterface.synthesize(s);
+			}
+		}
+
+		voce.SpeechInterface.destroy();
+		System.exit(0);
+	}
+}                
+            </code>
+            <!-- TODO describe your module, add more pages... -->
+        </p>
+        <p>The samples grammar file:</p>
+        <code>
+#JSGF V1.0;
+
+/**
+ * JSGF Digits Grammar file
+ */
+
+grammar digits;
+
+public &lt;miscellaneous> = (quit);
+
+public &lt;numbers> = (oh | zero | one | two | three | four | five | six | seven | eight | nine) * ;
+            
+        </code>
+    </body>
+</html>
+<!--
+Tip: to create a link which will open in an external web browser, try:
+<object classid="java:org.netbeans.modules.javahelp.BrowserDisplayer">
+    <param name="content" value="http://www.netbeans.org/">
+    <param name="text" value="<html><u>http://www.netbeans.org/</u></html>">
+    <param name="textFontSize" value="medium">
+    <param name="textColor" value="blue">
+</object>
+To create a link to a help set from another module, you need to know the code name base and path, e.g.:
+<a href="nbdocs://org.netbeans.modules.usersguide/org/netbeans/modules/usersguide/configure/configure_options.html">Using the Options Window</a>
+(This link will behave sanely if that module is disabled or missing.)
+-->

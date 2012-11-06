@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE library PUBLIC "-//NetBeans//DTD Library Declaration 1.0//EN" "http://www.netbeans.org/dtds/library-declaration-1_0.dtd">
+<library version="1.0">
+    <name>voce-speech-recognition</name>
+    <type>j2se</type>
+    <localizing-bundle>voce.plugin.Bundle</localizing-bundle>
+    <volume>
+        <type>classpath</type>
+        <resource>jar:nbinst://voce.plugin/libs/cmu_us_kal.jar!/</resource>
+        <resource>jar:nbinst://voce.plugin/libs/cmulex.jar!/</resource>
+        <resource>jar:nbinst://voce.plugin/libs/en_us.jar!/</resource>
+        <resource>jar:nbinst://voce.plugin/libs/freetts.jar!/</resource>
+        <resource>jar:nbinst://voce.plugin/libs/jsapi.jar!/</resource>
+        <resource>jar:nbinst://voce.plugin/libs/sphinx4.jar!/</resource>
+        <resource>jar:nbinst://voce.plugin/libs/voce.jar!/</resource>
+        <resource>jar:nbinst://voce.plugin/libs/WSJ_8gau_13dCep_16k_40mel_130Hz_6800Hz.jar!/</resource>
+    </volume>
+    <volume>
+        <type>src</type>
+        <resource>jar:nbinst://voce.plugin/sources/voce-speech-recognition-java.zip!/</resource>
+    </volume>
+    <volume>
+        <type>javadoc</type>
+        <resource>jar:nbinst://voce.plugin/docs/voce-speech-recognition-javadoc.zip!/</resource>
+    </volume>
+</library>

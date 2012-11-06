@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+OpenIDE-Module: voce.plugin
+OpenIDE-Module-Implementation-Version: 0
+OpenIDE-Module-Layer: voce/plugin/layer.xml
+OpenIDE-Module-Localizing-Bundle: voce/plugin/Bundle.properties
+OpenIDE-Module-Specification-Version: 0.9.1
+
